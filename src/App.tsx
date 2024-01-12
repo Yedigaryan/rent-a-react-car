@@ -1,26 +1,46 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import {Header} from "./components/header/Header";
+import {Section} from "./components/section/Section";
+import {Carousel} from "./components/carousel/Carousel";
+import {ArrowList} from "./components/arrow-list/ArrowList";
+import {Slider} from "./components/slider/Slider";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <>
+            <Header/>
+            <Section>
+                <h1>WE MOVE PROFESSIONALLY</h1>
+            </Section>
+            <Section>
+                <h2>Driving service
+                    Limousine service
+                    Airport transfer</h2>
+            </Section>
+            <Section>
+                <h1>BOOK YOUR PROFESSIONAL RIDE</h1>
+            </Section>
+            <Section>
+                <Carousel/>
+            </Section>
+            <Section>
+                <h1>BOOK EXCLUSIVE CHAUFFER SERVICES</h1>
+            </Section>
+            <Section>
+                <ArrowList/>
+            </Section>
+            <Section>
+                <Slider/>
+            </Section>
+            <Section>
+                <h2>AT LimoX WE HAVE THE BEST FLEET OPTIONS</h2>
+            </Section>
+            <Section>
+                <h2>We are happy to hear from you. Limousine service, airport transfer, shuttle service</h2>
+            </Section>
+        </>
+    );
 }
 
 export default App;
