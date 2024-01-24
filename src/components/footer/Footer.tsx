@@ -1,32 +1,38 @@
-import {SocialButton} from "../social-button/SocialButton";
+import {motion} from "framer-motion";
+import {SocialButton} from "../SocialButton";
 
 export const Footer = () => {
     return (
         <>
             <div className="bg-white w-full min-h-[30vh] px-20 pt-10 pb-5 flex justify-center flex-wrap text-gray-500">
                 <div className="border-b w-full h-fit p-7 flex items-center flex-wrap justify-center">
-                    <div className='lg:w-1/5 h-full flex items-center mr-4'>
+                    <div className='lg:w-1/5 h-full flex items-center sm:items-start mr-4'>
                         <img className="mx-auto" src="./assets/images/logos/logo_footer.svg" alt="LimoX logo"/>
                     </div>
-                    <div className='w-2/4 h-full flex flex-nowrap justify-between items-center'>
+                    <div
+                        className='2xl:w-2/4 lg:w-fit md:w-fit sm:w-full sm:flex-wrap  h-full flex flex-nowrap md:flex-wrap md:justify-center justify-between items-center'>
                         <p className="border-gray-500 h-full border-l-2 p-4 text-lg min-w-[220px]">P.O. Box 4621
                             Arlington, <br/> VA 2220</p>
                         <p className="border-gray-500 h-full border-l-2 p-4 text-lg min-w-[240px]">
-                            D.C. (202) 232-4440 <br/>
-                            Dispatch: (202) 779-6054 <br/>
-                            Virginia: (703) 979-6664
+                            <a href="tel:+12022324440">D.C. (202) 232-4440 </a> <br/>
+                            <a href="tel:+12027796054">Dispatch: (202) 779-6054 </a> <br/>
+                            <a href="tel:+17039796664">Virginia: (703) 979-6664</a>
                         </p>
                         <div className="border-gray-500 h-full border-l-2 p-4 min-w-[280px]">
-                            <p className="text-xs mb-3">Join our list to receive free offerings, discounts, coupons & our
+                            <p className="text-xs mb-3">Join our list to receive free offerings, discounts, coupons &
+                                our
                                 useful newsletter.</p>
                             <div className='w-full relative border-black border rounded-full px-12 py-2 '>
                                 <input id='emailId' placeholder='Your email ID' type="text"/>
-                                <img className='cursor-pointer absolute w-8 -translate-y-1/2 -translate-x-1/2 top-[50%] left-[90%]'
-                                     src="./assets/images/arrow.webp" alt="arrow"/>
+                                <motion.img whileHover={{zoom: 1.1}}
+                                            whileTap={{zoom: 0.9}}
+                                            className='cursor-custom-pointer absolute w-8 -translate-y-1/2 -translate-x-1/2 top-[50%] left-[90%]'
+                                            src="./assets/images/arrow.webp" alt="arrow"/>
                             </div>
                         </div>
                     </div>
-                    <div className="border-gray-500 border-l-2 p-4 h-full min-h-[118px] flex flex-nowrap items-center w-1/4 min-w-[440px]">
+                    <div
+                        className="border-gray-500 border-l-2 p-4 h-full min-h-[118px] flex flex-nowrap items-center w-1/4 min-w-[424px]">
                         <SocialButton link='https://www.facebook.com/' image='./assets/images/logos/facebook_logo.svg'/>
                         <SocialButton link='https://www.twitter.com//'
                                       image={'./assets/images/logos/twitter_logo.svg'}/>

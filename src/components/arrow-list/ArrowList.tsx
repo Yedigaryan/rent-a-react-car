@@ -10,7 +10,7 @@ export const ArrowList = () => {
         'Driving experience – control the adventure'
     ]
     return (
-        <div className='z-20 absolute flex flex-wrap top-[50%] left-[50%] w-4/5 h-4/6 -translate-y-1/2 -translate-x-1/2'>
+        <div className='z-20 absolute flex flex-wrap top-[50%] left-[50%] w-4/5 2xl:h-4/6 h-1/2 -translate-y-1/2 -translate-x-1/2'>
             {
                 listItems.map((item: string, index: number) => (
                     <ArrowListItem index={index} description={item} key={item}/>

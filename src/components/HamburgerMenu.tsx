@@ -1,15 +1,22 @@
-export const HamburgerMenu = ({isOpen, toggleMenu}: {isOpen: boolean, toggleMenu: Function}) => {
+import React from "react";
+import {MenuButton} from "./MenuButton";
+
+export const HamburgerMenu = ({isOpen, toggleMenu}: { isOpen: boolean, toggleMenu: Function }) => {
+
+    const menuButtonStyle = {
+        marginLeft: '0'
+    };
     function onClickHandler(): void {
         toggleMenu();
     }
 
     return (
         <>
-            <div onClick={() => onClickHandler()} className="flex w-8 h-6 flex-wrap items-center cursor-pointer">
-            <span className="block h-0.5 w-8 animate-pulse bg-amber-50"></span>
-            <span className="block h-0.5 w-8 animate-pulse bg-amber-50"></span>
-            <span className="block h-0.5 w-8 animate-pulse bg-amber-50"></span>
-            </div>
+            <MenuButton
+                isOpen={isOpen}
+                onClick={() => onClickHandler()}
+                style={menuButtonStyle}
+            />
         </>
     );
 };

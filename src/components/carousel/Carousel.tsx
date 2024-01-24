@@ -2,6 +2,7 @@ import {CarouselCardInterface} from "../../interfaces/carousel-card.interface";
 import {CarouselCard} from "./CarouselCard";
 import React, {useEffect, useState} from "react";
 import {Arrow} from "../../Arrow";
+import {motion} from "framer-motion";
 
 export const Carousel = () => {
     const cards: CarouselCardInterface[] = [
@@ -39,14 +40,29 @@ export const Carousel = () => {
 
     return (
         <>
-            <div className='relative h-full w-full'>
-                <Arrow onClick={leftClickHandler}
-                       className={'rotate-180 w-40 h-40 left-[10%] top-[50%] absolute -translate-x-1/2 -translate-y-1/2'}/>
-                <CarouselCard isLeftCard={true} {...cards[focusIndex <= 0 ? cards.length - 1 : (focusIndex - 1)]}/>
-                <CarouselCard isFocused={true} {...cards[focusIndex]}/>
-                <CarouselCard isRightCard={true} {...cards[focusIndex >= cards.length - 1 ? 0 : (focusIndex + 1)]}/>
-                <Arrow onClick={rightClickHandler}
-                       className={'w-40 h-40 left-[90%] top-[50%] absolute -translate-x-1/2 -translate-y-1/2'}/>
+            <div className='relative h-full w-full '>
+                <div className={'w-20 h-20 left-[10%] top-[50%] absolute translate-x-1/2 -translate-y-1/2 z-10'}>
+                    <motion.div
+                        className={'rotate-180'}
+                        whileHover={{scale: 1.1}}
+                        whileTap={{scale: 0.9}}
+                    >
+                        <Arrow className='rotate-180' onClick={leftClickHandler}/>
+                    </motion.div>
+                </div>
+                <div className='2xl:scale-100 xl:scale-75 lg:scale-60 w-full h-full relative'>
+                    <CarouselCard isLeftCard={true} {...cards[focusIndex <= 0 ? cards.length - 1 : (focusIndex - 1)]}/>
+                    <CarouselCard isFocused={true} {...cards[focusIndex]}/>
+                    <CarouselCard isRightCard={true} {...cards[focusIndex >= cards.length - 1 ? 0 : (focusIndex + 1)]}/>
+                </div>
+                <div className={'w-20 h-20 left-[90%] top-[50%] absolute -translate-x-1/2 -translate-y-1/2 z-10'}>
+                    <motion.div
+                        whileHover={{scale: 1.1}}
+                        whileTap={{scale: 0.9}}
+                    >
+                        <Arrow onClick={rightClickHandler}/>
+                    </motion.div>
+                </div>
             </div>
         </>
     );
